@@ -9,10 +9,14 @@ app.use(bodyParser.urlencoded({extended: false}))
 app.use(express.json());
 app.use('/api', socialMediaRouter);
 
+app.get('/', (req, res) => {
+    res.json({msg: 'hello'})
+})
+
 async function start(){
     try{
         await connectDB(process.env.MONGO_URI)
-        app.listen(6969, () => console.log('database connected successfully...'))
+        app.listen(3000, () => console.log('database connected successfully...'))
     }catch(error){
         console.log('error connecting database...')
     }
