@@ -7,7 +7,7 @@ const socialMediaRouter = require('./routes/routes')
 
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(express.json())
-app.use('/api', socialMediaRouter)
+app.use('/api', socialMediaRouter);
 
 async function start(){
     try{
