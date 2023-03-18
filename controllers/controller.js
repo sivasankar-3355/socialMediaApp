@@ -4,11 +4,11 @@ const User = require('../models/user')
 const Post = require('../models/post')
 const Comment = require('../models/comment')
 const path = require('path')
-
+const jwtSecret = 'gezzal'
 
 const authenticate = async (req, res, next) => {
     const { name, email, password } = req.body
-    const accessToken = jwt.sign({ email, password }, process.env.JWT_SECRET)
+    const accessToken = jwt.sign({ email, password }, jwtSecret)
     const user = await User.findOne({ email, password })
     if (!user) {
         await User.create({

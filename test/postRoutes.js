@@ -10,12 +10,12 @@ const controllerFuncs = require('../controllers/controller')
 require('dotenv').config()
 const connectdb = require('../database/connect')
 
-
+const testDb = 'mongodb+srv://siva:$iva@123@socialmediatest.rueoftc.mongodb.net/?retryWrites=true&w=majority'
 chai.use(chaiAsPromised)
 
 describe('controller functions', function () {
     it('should create a new post', async () => {
-        await connectdb(process.env.MONGO_URI_TEST)
+        await connectdb(testDb)
         const user = new User({
             _id: '641555953c48f74724060e14',
             userName: 'torch',
@@ -56,7 +56,7 @@ describe('controller functions', function () {
     })
 
     it('should delete a post', async () => {
-        await connectdb(process.env.MONGO_URI_TEST)
+        await connectdb(testDb)
         const user = new User({
             _id: '641555953c48f74724060e14',
             userName: 'torch',
@@ -99,7 +99,7 @@ describe('controller functions', function () {
     })
 
     it('should follow a user', async () => {
-        await connectdb(process.env.MONGO_URI_TEST)
+        await connectdb(testDb)
         const user1 = new User({
             _id: '641555953c48f74724060e14',
             userName: 'torch',
@@ -144,7 +144,7 @@ describe('controller functions', function () {
     })
 
     it('should unfollow a user', async () => {
-        await connectdb(process.env.MONGO_URI_TEST)
+        await connectdb(testDb)
         const user1 = new User({
             _id: '641555953c48f74724060e14',
             userName: 'torch',
@@ -189,7 +189,7 @@ describe('controller functions', function () {
     })
 
     it('should like a post', async () => {
-        await connectdb(process.env.MONGO_URI_TEST)
+        await connectdb(testDb)
         const user1 = new User({
             _id: '641555953c48f74724060e14',
             userName: 'torch',
@@ -230,7 +230,7 @@ describe('controller functions', function () {
     })
 
     it('should unlike a post', async () => {
-        await connectdb(process.env.MONGO_URI_TEST)
+        await connectdb(testDb)
         const user1 = new User({
             _id: '641555953c48f74724060e14',
             userName: 'torch',
@@ -273,7 +273,7 @@ describe('controller functions', function () {
     })
 
     it('should add a comment', async () => {
-        await connectdb(process.env.MONGO_URI_TEST)
+        await connectdb(testDb)
         const user1 = new User({
             _id: '641555953c48f74724060e14',
             userName: 'torch',
@@ -319,7 +319,7 @@ describe('controller functions', function () {
     })
 
     it('should get a post', async () => {
-        await connectdb(process.env.MONGO_URI_TEST)
+        await connectdb(testDb)
         const user1 = new User({
             _id: '641555953c48f74724060e14',
             userName: 'torch',
@@ -419,7 +419,7 @@ describe('controller functions', function () {
     })
 
     it('should get a user', async () => {
-        await connectdb(process.env.MONGO_URI_TEST)
+        await connectdb(testDb)
         const user = new User({
             _id: '641555953c48f74724060e14',
             userName: 'torch',

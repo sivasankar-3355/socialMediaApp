@@ -15,7 +15,7 @@ app.get('/', (req, res) => {
 
 async function start(){
     try{
-        await connectDB(process.env.MONGO_URI)
+        await connectDB('mongodb+srv://siva:$iva@123@cluster0.mpbx2mt.mongodb.net/?retryWrites=true&w=majority')
         app.listen(3000, () => console.log('database connected successfully...'))
     }catch(error){
         console.log('error connecting database...')
