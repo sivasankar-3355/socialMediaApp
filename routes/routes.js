@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const controller = require('../controllers/controller')
-const helper = require('../helpers/helper')
+const helper = require('../helpers/helper');
 
 router.post('/authenticate', controller.authenticate)
 router.post('/follow/:id', helper.verifyToken, controller.postFollowUser)

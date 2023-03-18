@@ -218,7 +218,7 @@ const getPost = async (req, res, next) => {
 
 const getAllPosts = async (req, res, next) => {
    try{
-    const user = req.user
+    const user = req.user;
     const appUser = await User.findOne({ email: user.email, password: user.password })
     const posts = await Post.find({ created_by_id: appUser._id })
     const resPosts = []
