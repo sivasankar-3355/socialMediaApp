@@ -85,6 +85,7 @@ const getUser = async (req, res, next) => {
         const user = req.user
         const appUser = await User.findOne({ email: user.email, password: user.password })
         res.json({
+            id: appUser._id,
             name: appUser.userName,
             no_of_followers: appUser.noOfFollowers,
             no_of_followings: appUser.noOfFollowings
