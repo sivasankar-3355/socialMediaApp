@@ -2,7 +2,7 @@ require('dotenv').config()
 const jwt = require('jsonwebtoken')
 
 const verifyToken = (req, res, next) => {
-    const authHeader = req.get('Authorization')
+    const authHeader = req.get('Authorization');
     if (!authHeader) {
         const error = new Error('Not authenticated.');
         error.statusCode = 401;
