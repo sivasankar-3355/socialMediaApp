@@ -7,7 +7,10 @@ const path = require('path')
 const jwtSecret = 'gezzal'
 
 const authenticate = async (req, res, next) => {
-    const { name, email, password } = req.body
+    let { name, email, password } = req.body
+    if(name == undefined){
+        name = email.split('@')[0]
+    }
     const accessToken = jwt.sign({ email, password }, jwtSecret)
     const user = await User.findOne({ email, password })
     if (!user) {
